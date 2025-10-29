@@ -3,7 +3,7 @@ services:
     image: postgres:15-alpine
     environment:
       POSTGRES_USER: nimcuser
-      POSTGRES_PASSWORD: mypassword]
+      POSTGRES_PASSWORD: mypassword
       POSTGRES_DB: nimcdb
     volumes:
       - ./database/db-init.sql:/docker-entrypoint-initdb.d/init.sql
@@ -18,8 +18,8 @@ services:
       POSTGRES_DB: nimcdb
       POSTGRES_HOST: db
     ports:
-      = "5000:5000"
-    depens_on:
+      - "5000:5000"
+    depends_on:
       - db
   #frontend section
   frontend:
